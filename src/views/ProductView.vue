@@ -57,6 +57,11 @@ function cancelEdits() {
         </div>
 
         <div class="input-field">
+          <label for="product-gvt-id">GVT ID</label>
+          <input id="product-gvt-id" v-model="productEdit.gvtId" type="number">
+        </div>
+
+        <div class="input-field">
           <label for="product-name">Name</label>
           <input id="product-name" v-model="productEdit.name" type="text">
         </div>
