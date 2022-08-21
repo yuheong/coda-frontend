@@ -35,11 +35,13 @@ function editProduct(editedProduct: Product) {
       <div class="product-details">
         <h1>{{ product.name }}</h1>
         <img :src="product.logoLocation" />
+        <br />
+        <p>{{ product.productTagline }}</p>
         <a :href="product.orderUrl" target="_blank">Order now</a>
         <br />
-        <div v-html="product.shortDescription" />
+        <div v-html="product.shortDescription" class="preformatted-text" />
         <br />
-        <!-- <div v-html="product.longDescription" /> -->
+        <!-- <div v-html="product.longDescription" class="preformatted-text" /> -->
       </div>
 
       <button @click="isEditing = true" v-if="!isEditing">Edit product</button>
@@ -74,5 +76,10 @@ button {
   background-color: rgb(108, 37, 105);
   color: white;
   font-weight: bold;
+}
+
+.preformatted-text {
+  text-align: justify;
+  margin: 0 4rem;
 }
 </style>

@@ -35,12 +35,12 @@ function cancelEdits() {
 
             <div class="input-field">
                 <label for="product-name">Name</label>
-                <input id="product-name" v-model="productEdit.name" type="text">
+                <input id="product-name" v-model="productEdit.name" type="text" maxlength="50">
             </div>
 
             <div class="input-field">
                 <label for="product-tagline">Product tagline</label>
-                <input id="product-tagline" v-model="productEdit.productTagline" type="text">
+                <input id="product-tagline" v-model="productEdit.productTagline" type="text" maxlength="100">
             </div>
 
             <div class="input-field">
@@ -50,7 +50,7 @@ function cancelEdits() {
 
             <div class="input-field">
                 <label for="long-description">Long description</label>
-                <textarea id="long-description" v-model="productEdit.longDescription" type="text" />
+                <textarea id="long-description" v-model="productEdit.longDescription" />
             </div>
 
             <div class="input-field">
@@ -60,7 +60,7 @@ function cancelEdits() {
 
             <div class="input-field">
                 <label for="voucher-type-name">Voucher type name</label>
-                <input id="voucher-type-name" v-model="productEdit.voucherTypeName" type="text" />
+                <input id="voucher-type-name" v-model="productEdit.voucherTypeName" type="text" maxlength="20" />
             </div>
 
             <div class="input-field">
@@ -70,7 +70,7 @@ function cancelEdits() {
 
             <div class="input-field">
                 <label for="product-title">Product title</label>
-                <input id="product-title" v-model="productEdit.productTitle" type="text" />
+                <input id="product-title" v-model="productEdit.productTitle" type="text" maxlength="50" />
             </div>
 
             <br />
