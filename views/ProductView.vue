@@ -6,33 +6,62 @@ import products from "../api/mocks/products.json"
 
 const route = useRoute();
 
-const product_name = route.params.product_name
+const productName = route.params.product_name
 const product = ref({} as Product)
-const isEditing = ref(false)
+const productEdit = ref({} as Product)
+const isEditing = ref(true)
 
 onMounted(() => {
-  product.value = products.products.find((pdt) => (pdt.productUrl === `/ca/${product_name}`))
-  console.log(product.value)
+  const foundProduct = products.products.find((pdt) => (pdt.productUrl === `/ca/${productName}`))
+  if (foundProduct) {
+    product.value = foundProduct
+  } else {
+    console.log('404')
+  }
+  productEdit.value = { ...product.value }
+  // console.log(product.value)
 })
+
+function editProduct() {
+  console.log(productEdit.value)
+  product.value = { ...productEdit.value }
+
+  isEditing.value = false
+}
+
+function cancelEdits() {
+  productEdit.value = { ...product.value };
+  isEditing.value = false
+}
+
 </script>
 
 <template>
   <main>
-    <div class="product">
-      <h1>{{ product.name }}</h1>
-      <img :src="product.logoLocation" />
-      <a :href="product.orderUrl" target="_blank">Order now</a>
-      <br />
-      <div v-html="product.shortDescription" />
-      <br />
-      <!-- <div v-html="product.longDescription" /> -->
-    </div>
-    <button @click="isEditing = !isEditing">{{ isEditing ? 'Save product' : 'Edit product' }}</button>
+    <div class="product-page">
+      <div class="product">
+        <h1>{{ product.name }}</h1>
+        <img :src="product.logoLocation" />
+        <a :href="product.orderUrl" target="_blank">Order now</a>
+        <br />
+        <div v-html="product.shortDescription" />
+        <br />
+        <!-- <div v-html="product.longDescription" /> -->
+      </div>
+      <button @click="isEditing = true" v-if="!isEditing">Edit product</button>
 
-    <form>
-      <input v-model="product.name">
-      <input type="submit">
-    </form>
+      <form v-if="isEditing" @submit.prevent="editProduct">
+        <input v-model="productEdit.id" type="number">
+        <br />
+        <label for="Product name">Product name</label>
+        <input v-model="productEdit.name" type="text">
+        <br />
+        <button @click="cancelEdits">Cancel edit</button>
+        <br />
+        <input type="submit">
+      </form>
+    </div>
+
   </main>
 </template>
 
@@ -42,7 +71,7 @@ onMounted(() => {
     font-weight: bold;
   }
 
-  .product {
+  .product-page {
     margin: 2rem
   }
 }

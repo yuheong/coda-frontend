@@ -9,7 +9,7 @@ import Header from './components/Header.vue'
       <Header />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <!-- <RouterLink to="/">Home</RouterLink> -->
         <!-- <RouterLink to="/about">Product</RouterLink> -->
       </nav>
     </div>

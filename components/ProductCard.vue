@@ -10,12 +10,12 @@ const props = defineProps({
 
 <template>
   <div class="product-card" v-if="product">
-    <h2>{{ product.name }}</h2>
-    <a :href="product.productUrl">
+    <a class="product-card-link" :href="product.productUrl">
+      <h2>{{ product.name }}</h2>
       <img :src="product.logoLocation" width="640" :alt="product.productTitle" />
-    </a>
 
-    <div>{{ product.productTitle }}</div>
+      <div>{{ product.productTitle }}</div>
+    </a>
   </div>
 
 </template>
@@ -27,9 +27,13 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.product-card-link {
+  color: #f0f0f0;
+}
+
 .product-card {
   background-color: #360636;
-  padding: 15px 20px;
+  padding: 15px 10px;
   border-radius: 12px;
 }
 </style>
