@@ -1,27 +1,19 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
 import ProductCard from './ProductCard.vue'
-import products from "../api/mocks/products.json"
 import type { Product } from '@/types/Product'
 import { computed } from '@vue/reactivity'
+import { store } from '@/store';
 
 const props = defineProps({
   searchQuery: String
 })
 
-const productList = ref([] as Array<Product>)
-
-onMounted(() => {
-  productList.value = products.products
-})
-
 const filteredProductList = computed(() => {
   if (props.searchQuery) {
-    console.log("aaa", props.searchQuery)
     const normalizedSearchQuery = props.searchQuery.toLowerCase();
-    return productList.value.filter((pdt) => (pdt.name.toLowerCase().startsWith(normalizedSearchQuery)))
+    return store.products.filter((pdt) => (pdt.name.toLowerCase().startsWith(normalizedSearchQuery)))
   } else {
-    return productList.value
+    return store.products
   }
 })
 </script>

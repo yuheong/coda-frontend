@@ -6,7 +6,9 @@
 
 <style scoped>
 .footer {
+    position: static;
     left: 0;
+    right: 0;
     bottom: 0;
     margin-top: 50px;
     background-color: rgb(209, 209, 119);

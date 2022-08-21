@@ -14,7 +14,7 @@ const props = defineProps({
       <h2>{{ product.name }}</h2>
       <img :src="product.logoLocation" width="640" :alt="product.productTitle" />
 
-      <div>{{ product.productTitle }}</div>
+      <div class="product-tagline">{{ product.productTagline }}</div>
     </a>
   </div>
 
@@ -35,5 +35,10 @@ h2 {
   background-color: #360636;
   padding: 15px 10px;
   border-radius: 12px;
+}
+
+.product-tagline {
+  margin-top: 10px;
+  text-align: center;
 }
 </style>

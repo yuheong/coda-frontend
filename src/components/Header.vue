@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { store } from "@/store";
 import SearchBar from "./SearchBar.vue";
 </script>
 
