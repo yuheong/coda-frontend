@@ -35,6 +35,8 @@ h2 {
   background-color: #360636;
   padding: 15px 10px;
   border-radius: 12px;
+  display: flex;
+  justify-content: center;
 }
 
 .product-tagline {
